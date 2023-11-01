@@ -1,9 +1,6 @@
-import { render } from 'react-dom';
-import { Counter } from './components/Counter';
+import { App } from './App';
 
-render(
-  <div>
-    <Counter />
-  </div>,
-  document.getElementById('root')
-);
+import { createRoot } from 'react-dom/client';
+const container = document.getElementById('root');
+const root = createRoot(container!);
+root.render(<App />);
