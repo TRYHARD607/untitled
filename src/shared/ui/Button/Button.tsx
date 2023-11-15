@@ -1,7 +1,8 @@
+import { type ButtonHTMLAttributes } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { type ReactFCC } from 'shared/types/react';
+
 import cls from './Button.module.scss';
-import { ButtonHTMLAttributes } from 'react';
-import { ReactFCC } from 'shared/types/react';
 
 export enum ThemeButton {
   CLEAR = 'clear',
