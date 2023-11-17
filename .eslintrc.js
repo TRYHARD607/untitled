@@ -7,6 +7,7 @@ module.exports = {
     'standard-with-typescript',
     'plugin:react/recommended',
     'plugin:import/recommended',
+    'plugin:i18next/recommended',
   ],
   overrides: [
     {
@@ -23,7 +24,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', 'import', 'simple-import-sort'],
+  plugins: ['react', 'import', 'simple-import-sort', 'i18next'],
   rules: {
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',
@@ -41,5 +42,6 @@ module.exports = {
     '@typescript-eslint/prefer-nullish-coalescing': 'off',
     '@typescript-eslint/strict-boolean-expressions': 'off',
     '@typescript-eslint/naming-convention': 'warn',
+    'i18next/no-literal-string': ['error', { markupOnly: true }],
   },
 };
