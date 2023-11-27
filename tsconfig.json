@@ -10,11 +10,18 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
-    "paths": {"*": ["./src/*"]},
+    "paths": { "*": ["./src/*"] }
   },
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
     }
   },
+  "include": [
+    "./config/jest/jest.setup.ts",
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+    "./config/**/*.ts",
+    "./config/**/*.tsx"
+  ]
 }
