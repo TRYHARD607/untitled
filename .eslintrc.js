@@ -9,6 +9,7 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:import/recommended',
     'plugin:i18next/recommended',
+    'plugin:storybook/recommended',
   ],
   overrides: [
     {
@@ -44,9 +45,5 @@ module.exports = {
     '@typescript-eslint/strict-boolean-expressions': 'off',
     '@typescript-eslint/naming-convention': 'warn',
     'i18next/no-literal-string': ['error', { markupOnly: true }],
-  },
-  overrides: {
-    files: ['**/src/**/*.test.{ts, tsx}'],
-    rules: { 'i18next/no-literal-string': 'off' },
   },
 };
