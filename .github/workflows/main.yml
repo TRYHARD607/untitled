@@ -5,12 +5,11 @@ on:
   pull_request:
     branches: [master]
 jobs:
-  pipeline:
+  Install dependencies:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [20.x]
-
     steps:
       - uses: actions/checkout@v4
       - name: Staring Node.js ${{ matrix.node-version }}
@@ -19,11 +18,23 @@ jobs:
           node-version: ${{ matrix.node }}
       - name: install modules
         run: npm install
+  Build project:
+    runs-on: ubuntu-latest
+    needs: [Install dependencies]
+      steps:
       - name: build production project
         run: npm run build:prod
+  Linting:
+    runs-on: ubuntu-latest
+    needs: [Install dependencies]
+    steps:
       - name: linting typescript
         run: npm run lint:ts
       - name: linting scss
         run: npm run lint:scss
+  Testing:
+    needs: [Install dependencies]
+    runs-on: ubuntu-latest
+    steps:
       - name: unit tests
         run: npm run test:unit
