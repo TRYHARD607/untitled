@@ -1,7 +1,9 @@
 import type { StorybookConfig } from '@storybook/react-webpack5';
 import path from 'path';
+import { type RuleSetRule } from 'webpack';
 
 import { buildCssLoaders } from '../build/loaders/buildCssLoaders';
+import { buildSvgLoaders } from '../build/loaders/buildSvgLoaders';
 import { type BuildPaths } from '../build/types/config';
 
 const config: StorybookConfig = {
@@ -14,7 +16,7 @@ const config: StorybookConfig = {
     '@storybook/addon-essentials',
     '@storybook/addon-onboarding',
     '@storybook/addon-interactions',
-    '@storybook/addon-styling-webpack'
+    '@storybook/addon-styling-webpack',
   ],
   framework: {
     name: '@storybook/react-webpack5',
@@ -31,9 +33,14 @@ const config: StorybookConfig = {
       src: path.resolve(__dirname, '..', '..', 'src'),
     };
     config.resolve.modules.push(paths.src);
-    // config.resolve.extensions.push('.ts', '.tsx');
+    config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
+      if (/svg/.test(rule.test as string)) {
+        return { ...rule, exclude: /\.svg$/i };
+      }
+      return rule;
+    });
     config.module.rules.push(buildCssLoaders(true));
-    console.log(config.module.rules);
+    config.module.rules.push(buildSvgLoaders());
     return config;
   },
 };

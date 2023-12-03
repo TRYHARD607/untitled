@@ -1,6 +1,7 @@
 import { type RuleSetRule } from 'webpack';
 
 import { buildCssLoaders } from './loaders/buildCssLoaders';
+import { buildSvgLoaders } from './loaders/buildSvgLoaders';
 import { type BuildOptions } from './types/config';
 
 export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
@@ -13,10 +14,7 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
     ],
   };
 
-  const svgLoader: RuleSetRule = {
-    test: /\.svg$/,
-    use: ['@svgr/webpack'],
-  };
+  const svgLoader: RuleSetRule = buildSvgLoaders();
 
   const cssLoader: RuleSetRule = buildCssLoaders(isDev);
 

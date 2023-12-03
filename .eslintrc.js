@@ -45,5 +45,6 @@ module.exports = {
     '@typescript-eslint/strict-boolean-expressions': 'off',
     '@typescript-eslint/naming-convention': 'warn',
     'i18next/no-literal-string': ['error', { markupOnly: true }],
+    '@typescript-eslint/prefer-includes': 'warn',
   },
 };
