@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 
-import { Button, ThemeButton } from './Button';
+import { Button, ButtonSize, ButtonTheme } from './Button';
 
 const meta = {
   title: 'shared/Button',
@@ -21,22 +21,95 @@ export const Primary: Story = {
 
 export const Clear: Story = {
   args: {
-    theme: ThemeButton.CLEAR,
+    theme: ButtonTheme.CLEAR,
     children: 'Button',
   },
 };
 
 export const Outline: Story = {
   args: {
-    theme: ThemeButton.OUTLINE,
+    theme: ButtonTheme.OUTLINE,
     children: 'Button',
+  },
+};
+
+export const OutlineSizeL: Story = {
+  args: {
+    theme: ButtonTheme.OUTLINE,
+    children: 'Button',
+    size: ButtonSize.L,
+  },
+};
+
+export const OutlineSizeXL: Story = {
+  args: {
+    theme: ButtonTheme.OUTLINE,
+    children: 'Button',
+    size: ButtonSize.XL,
   },
 };
 
 export const OutlineDark: Story = {
   args: {
-    theme: ThemeButton.OUTLINE,
+    theme: ButtonTheme.OUTLINE,
     children: 'Button',
   },
   decorators: [ThemeDecorator(Theme.DARK)],
+};
+
+export const Background: Story = {
+  args: {
+    theme: ButtonTheme.BACKGROUND,
+    children: 'Button',
+  },
+};
+
+export const BackgroundDark: Story = {
+  args: {
+    theme: ButtonTheme.BACKGROUND,
+    children: 'Button',
+  },
+  decorators: [ThemeDecorator(Theme.DARK)],
+};
+
+export const BackgroundInverted: Story = {
+  args: {
+    theme: ButtonTheme.BACKGROUND_INVERTED,
+    children: 'Button',
+  },
+};
+
+export const BackgroundInvertedDark: Story = {
+  args: {
+    theme: ButtonTheme.BACKGROUND_INVERTED,
+    children: 'Button',
+  },
+  decorators: [ThemeDecorator(Theme.DARK)],
+};
+
+export const Square: Story = {
+  args: {
+    theme: ButtonTheme.BACKGROUND_INVERTED,
+    children: '>',
+    square: true,
+    size: ButtonSize.M,
+  },
+};
+
+export const SquareSizeL: Story = {
+  args: {
+    theme: ButtonTheme.BACKGROUND_INVERTED,
+    children: '>',
+    square: true,
+    size: ButtonSize.L,
+  },
+};
+
+export const SquareSizeXL: Story = {
+  args: {
+    theme: ButtonTheme.BACKGROUND_INVERTED,
+    children: '>',
+    square: true,
+    size: ButtonSize.XL,
+  },
 };
