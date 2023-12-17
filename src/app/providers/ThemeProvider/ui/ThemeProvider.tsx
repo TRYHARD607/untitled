@@ -7,11 +7,16 @@ import {
   ThemeContext,
 } from '../lib/ThemeContext';
 
+interface ThemeProviderProps {
+  initialTheme?: Theme;
+}
+
 const defaultTheme =
   (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) || Theme.LIGHT;
 
-const ThemeProvider: ReactFCC = ({ children }) => {
-  const [theme, setTheme] = useState<Theme>(defaultTheme);
+const ThemeProvider: ReactFCC<ThemeProviderProps> = (props) => {
+  const { children, initialTheme } = props;
+  const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme);
 
   const defaultProps = useMemo(() => ({ theme, setTheme }), [theme]);
 

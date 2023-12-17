@@ -1,5 +1,8 @@
+import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { Modal } from 'shared/ui/Modal/Modal';
 
 import cls from './Navbar.module.scss';
 
@@ -9,5 +12,27 @@ interface NavbarProps {
 
 export const Navbar = ({ className }: NavbarProps) => {
   const { t } = useTranslation();
-  return <div className={classNames(cls.Navbar, {}, [className])}></div>;
+  const [isAuthModalOpened, setIsAuthModalOpened] = useState(false);
+
+  const onToggleModal = useCallback(() => {
+    setIsAuthModalOpened((prev) => !prev);
+  }, []);
+
+  return (
+    <div className={classNames(cls.Navbar, {}, [className])}>
+      <Button
+        theme={ButtonTheme.CLEAR_INVERTED}
+        className={cls.links}
+        onClick={onToggleModal}
+      >
+        {t('Log in')}
+      </Button>
+      <Modal isOpened={isAuthModalOpened} onClose={onToggleModal}>
+        {
+          // eslint-disable-next-line i18next/no-literal-string
+        }
+        hehehehehe
+      </Modal>
+    </div>
+  );
 };
