@@ -12,6 +12,7 @@ module.exports = {
     'plugin:storybook/recommended',
     'plugin:react-hooks/recommended',
   ],
+  ignorePatterns: ['*.js'],
   overrides: [
     {
       env: {

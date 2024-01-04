@@ -1,3 +1,4 @@
+import { useTheme } from 'app/providers/ThemeProvider';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { type ReactFCC } from 'shared/types/react';
@@ -17,6 +18,7 @@ export const Modal: ReactFCC<ModalProps> = (props) => {
   const { className, children, isOpened, onClose } = props;
 
   const timerRef = useRef<NodeJS.Timeout>();
+  const { theme } = useTheme();
   const [isClosing, setIsClosing] = useState(false);
 
   const closeHandler = useCallback(() => {
@@ -59,7 +61,9 @@ export const Modal: ReactFCC<ModalProps> = (props) => {
 
   return (
     <Portal>
-      <div className={classNames(cls.Modal, mods, [className])}>
+      <div
+        className={classNames(cls.Modal, mods, [className, theme, 'app_modal'])}
+      >
         <div className={cls.overlay} onClick={closeHandler}>
           <div className={cls.content} onClick={onContentCLick}>
             {children}
