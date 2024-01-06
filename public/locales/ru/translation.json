@@ -9,5 +9,8 @@
   "Something went wrong": "Что-то пошло не так",
   "Reload page": "Перезагрузить страницу",
   "toggle": "переключить",
-  "Log in": "Войти"
+  "Log in": "Войти",
+  "Login": "Войти",
+  "Username": "Имя пользователя",
+  "Password": "Пароль"
 }
