@@ -12,5 +12,8 @@
   "Log in": "Log in",
   "Login": "Login",
   "Username": "Username",
-  "Password": "Password"
+  "Password": "Password",
+  "Authorization form": "Authorization form",
+  "Incorrect login or password": "Incorrect login or password",
+  "Log out": "Log out"
 }

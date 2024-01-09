@@ -1,6 +1,6 @@
 import type { StorybookConfig } from '@storybook/react-webpack5';
 import path from 'path';
-import { type RuleSetRule } from 'webpack';
+import { DefinePlugin, type RuleSetRule } from 'webpack';
 
 import { buildCssLoaders } from '../build/loaders/buildCssLoaders';
 import { buildSvgLoaders } from '../build/loaders/buildSvgLoaders';
@@ -41,6 +41,7 @@ const config: StorybookConfig = {
     });
     config.module.rules.push(buildCssLoaders(true));
     config.module.rules.push(buildSvgLoaders());
+    config.plugins.push(new DefinePlugin({ __IS_DEV__: true }));
     return config;
   },
 };

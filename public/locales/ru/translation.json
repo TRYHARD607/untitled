@@ -12,5 +12,8 @@
   "Log in": "Войти",
   "Login": "Войти",
   "Username": "Имя пользователя",
-  "Password": "Пароль"
+  "Password": "Пароль",
+  "Authorization form": "Форма авторизации",
+  "Incorrect login or password": "Неверный логин или пароль",
+  "Log out": "Выйти"
 }
