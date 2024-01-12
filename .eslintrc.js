@@ -49,5 +49,6 @@ module.exports = {
     'i18next/no-literal-string': ['error', { markupOnly: true }],
     '@typescript-eslint/prefer-includes': 'warn',
     '@typescript-eslint/indent': 'off',
+    '@typescript-eslint/no-dynamic-delete': 'off',
   },
 };
