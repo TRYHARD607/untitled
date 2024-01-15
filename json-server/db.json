@@ -7,5 +7,14 @@
   ],
   "users": [{ "id": "1", "username": "admin", "password": "1234" }],
   "comments": [{ "id": "1", "body": "some comment", "postId": "1" }],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "first": "Alex",
+    "lastname": "Kvashnev",
+    "age": 26,
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "Novosibirsk",
+    "username": "admin",
+    "avatar": "https://img.freepik.com/free-vector/mysterious-mafia-man-smoking-cigarette_52683-34828.jpg?w=740&t=st=1705296435~exp=1705297035~hmac=8e94a939bab1c3ab69b61b51b937ea0d3e84d2c38f6ccabaebe1ce34c0bbc715"
+  }
 }

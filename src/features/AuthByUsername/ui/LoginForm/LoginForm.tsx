@@ -21,11 +21,12 @@ import cls from './LoginForm.module.scss';
 
 export interface LoginFormProps {
   className?: string;
+  onSuccess: () => void;
 }
 
 const initialReducers: ReducersList = { loginForm: loginReducer };
 
-const LoginForm = memo(({ className }: LoginFormProps) => {
+const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
   const username = useSelector(getLoginUsername);
@@ -47,9 +48,12 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
     [dispatch]
   );
 
-  const onLoginClick = useCallback(() => {
-    void dispatch(loginByUsername({ username, password }));
-  }, [dispatch, password, username]);
+  const onLoginClick = useCallback(async () => {
+    const result = await dispatch(loginByUsername({ username, password }));
+    if (result.meta.requestStatus === 'fulfilled') {
+      onSuccess();
+    }
+  }, [dispatch, onSuccess, password, username]);
 
   return (
     <DynamicModuleLoader reducers={initialReducers}>
@@ -77,7 +81,9 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
         <Button
           className={cls.loginBtn}
           theme={ButtonTheme.OUTLINE}
-          onClick={onLoginClick}
+          onClick={() => {
+            void onLoginClick();
+          }}
           disabled={isLoading}
         >
           {t('Login')}

@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { Link, type LinkProps } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { type ReactFCC } from 'shared/types/react';
@@ -15,7 +16,7 @@ interface AppLinkProps extends LinkProps {
   theme?: AppLinkTheme;
 }
 
-export const AppLink: ReactFCC<AppLinkProps> = (props) => {
+export const AppLink: ReactFCC<AppLinkProps> = memo((props) => {
   const {
     className,
     children,
@@ -33,4 +34,6 @@ export const AppLink: ReactFCC<AppLinkProps> = (props) => {
       {children}
     </Link>
   );
-};
+});
+
+AppLink.displayName = 'AppLink';
