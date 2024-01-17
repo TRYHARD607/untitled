@@ -32,16 +32,17 @@ const config: StorybookConfig = {
       entry: '',
       src: path.resolve(__dirname, '..', '..', 'src'),
     };
-    config.resolve.modules.push(paths.src);
-    config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
+    config.resolve!.modules!.push(paths.src);
+    // @ts-expect-error rule set rule
+    config.module!.rules = config.module!.rules!.map((rule: RuleSetRule) => {
       if (/svg/.test(rule.test as string)) {
         return { ...rule, exclude: /\.svg$/i };
       }
       return rule;
     });
-    config.module.rules.push(buildCssLoaders(true));
-    config.module.rules.push(buildSvgLoaders());
-    config.plugins.push(new DefinePlugin({ __IS_DEV__: true }));
+    config.module!.rules.push(buildCssLoaders(true));
+    config.module!.rules.push(buildSvgLoaders());
+    config.plugins!.push(new DefinePlugin({ __IS_DEV__: true, __API__: '' }));
     return config;
   },
 };

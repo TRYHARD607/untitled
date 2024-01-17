@@ -1,6 +1,6 @@
 import { useTheme } from 'app/providers/ThemeProvider';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, type Mods } from 'shared/lib/classNames/classNames';
 import { type ReactFCC } from 'shared/types/react';
 import { Portal } from 'shared/ui/Portal/Portal';
 
@@ -18,7 +18,7 @@ interface ModalProps {
 export const Modal: ReactFCC<ModalProps> = (props) => {
   const { className, children, isOpened, onClose, lazy } = props;
 
-  const timerRef = useRef<NodeJS.Timeout>();
+  const timerRef = useRef<NodeJS.Timeout | undefined>(undefined);
   const { theme } = useTheme();
   const [isClosing, setIsClosing] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
@@ -62,7 +62,7 @@ export const Modal: ReactFCC<ModalProps> = (props) => {
     }
   }, [isOpened]);
 
-  const mods: Record<string, boolean> = {
+  const mods: Mods = {
     [cls.opened]: isOpened,
     [cls.isClosing]: isClosing,
   };

@@ -16,12 +16,14 @@ export function createReducerManager(
 ): ReducerManager {
   const reducers = { ...initialReducers };
 
-  let combinedReducer = combineReducers(reducers);
+  let combinedReducer =
+    combineReducers<ReducersMapObject<StateSchema, UnknownAction>>(reducers);
 
   let keysToRemove: StateSchemaKey[] = [];
 
   return {
     getReducerMap: () => reducers,
+    // @ts-expect-error combine reducers type error
     reduce: (state: StateSchema, action: UnknownAction) => {
       if (keysToRemove.length > 0) {
         state = { ...state };
@@ -30,6 +32,7 @@ export function createReducerManager(
         }
         keysToRemove = [];
       }
+      // @ts-expect-error combine reducers type error
       return combinedReducer(state, action);
     },
     add: (key: StateSchemaKey, reducer: Reducer) => {

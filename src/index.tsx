@@ -9,15 +9,15 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 
 const container = document.getElementById('root');
-const root = createRoot(container);
+const root = createRoot(container as HTMLElement);
 root.render(
-  <StoreProvider>
-    <ErrorBoundary>
-      <BrowserRouter>
+  <BrowserRouter>
+    <StoreProvider>
+      <ErrorBoundary>
         <ThemeProvider>
           <App />
         </ThemeProvider>
-      </BrowserRouter>
-    </ErrorBoundary>
-  </StoreProvider>
+      </ErrorBoundary>
+    </StoreProvider>
+  </BrowserRouter>
 );
