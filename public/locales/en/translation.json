@@ -16,5 +16,7 @@
   "Authorization form": "Authorization form",
   "Incorrect login or password": "Incorrect login or password",
   "Log out": "Log out",
-  "Profile": "Profile"
+  "Profile": "Profile",
+  "Currency": "Currency",
+  "Country": "Country"
 }

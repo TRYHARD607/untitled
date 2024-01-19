@@ -50,5 +50,6 @@ module.exports = {
     '@typescript-eslint/prefer-includes': 'warn',
     '@typescript-eslint/indent': 'off',
     '@typescript-eslint/no-dynamic-delete': 'off',
+    'multiline-ternary': 'off',
   },
 };

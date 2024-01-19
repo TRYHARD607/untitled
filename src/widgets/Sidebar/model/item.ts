@@ -7,10 +7,16 @@ export interface SidebarItemType {
   path: string;
   text: string;
   Icon: React.FC<React.SVGAttributes<SVGElement>>;
+  authOnly?: boolean;
 }
 
 export const SidebarItemsList: SidebarItemType[] = [
   { path: RoutePath.main, text: 'Main', Icon: MainIcon },
   { path: RoutePath.about, text: 'About', Icon: AboutIcon },
-  { path: RoutePath.profile, text: 'Profile', Icon: ProfileIcon },
+  {
+    path: RoutePath.profile,
+    text: 'Profile',
+    Icon: ProfileIcon,
+    authOnly: true,
+  },
 ];

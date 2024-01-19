@@ -1,11 +1,12 @@
 import { type StateSchema } from 'app/providers/StoreProvider';
-import { Country, Currency } from 'shared/consts/common';
+import { Country } from 'entities/Country';
+import { Currency } from 'entities/Currency';
+import { type Profile } from 'entities/Profile/model/types/profile';
 
-import { type Profile } from '../../types/profile';
 import { getProfileData } from './getProfileData';
 
 describe('getProfileData.test', () => {
-  test('should return error', () => {
+  test('should return value', () => {
     const mockedData: Profile = {
       first: 'Alex',
       lastname: 'Kvashnev',

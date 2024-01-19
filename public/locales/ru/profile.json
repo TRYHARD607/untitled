@@ -1,8 +1,13 @@
 {
-  "profile": {
-    "Profile": "Профиль",
-    "Edit": "Редактировать",
-    "Your name": "Ваше имя",
-    "Your lastname": "Ваша фамилия"
-  }
+  "Profile": "Профиль",
+  "Edit": "Редактировать",
+  "Something went wrong": "Что-то пошло не так",
+  "Please reload the page": "Пожалуйста, перезагрузите страницу",
+  "Cancel": "Отмена",
+  "Your name": "Ваше имя",
+  "Your lastname": "Ваша фамилия",
+  "Save": "Сохранять",
+  "Your age": "Ваш возраст",
+  "Your city": "Ваш город",
+  "Avatar link": "Ссылка на аватар"
 }

@@ -8,9 +8,9 @@ import {
 } from '@reduxjs/toolkit';
 import { type AxiosInstance } from 'axios';
 import { type CounterSchema } from 'entities/Counter';
-import { type ProfileSchema } from 'entities/Profile';
 import { type UserSchema } from 'entities/User';
 import { type LoginSchema } from 'features/AuthByUsername';
+import { type ProfileSchema } from 'features/EditableProfileCard';
 import { type NavigateOptions, type To } from 'react-router-dom';
 
 export interface StateSchema {
@@ -44,6 +44,7 @@ export interface ThunkExtraArg {
 export interface ThunkConfig<T> {
   rejectValue: T;
   extra: ThunkExtraArg;
+  state: StateSchema;
 }
 
 export type DefaultMiddlewareType = Tuple<

@@ -1,8 +1,13 @@
 {
-  "profile": {
-    "Profile": "Profile",
-    "Edit": "Edit",
-    "Your name": "Your name",
-    "Your lastname": "Your lastname"
-  }
+  "Profile": "Profile",
+  "Edit": "Edit",
+  "Something went wrong": "Something went wrong",
+  "Please reload the page": "Please reload the page",
+  "Cancel": "Cancel",
+  "Your name": "Your name",
+  "Your lastname": "Your lastname",
+  "Save": "Save",
+  "Your age": "Your age",
+  "Your city": "Your city",
+  "Avatar link": "Avatar link"
 }
