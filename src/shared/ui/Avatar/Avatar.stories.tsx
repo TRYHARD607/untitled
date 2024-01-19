@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import Image from 'shared/assets/test/storybook.jpg';
 
 import { Avatar } from './Avatar';
-import Image from './storybook.jpg';
 
 const meta = {
   title: 'shared/Avatar',

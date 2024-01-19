@@ -9,5 +9,10 @@
   "Save": "Сохранять",
   "Your age": "Ваш возраст",
   "Your city": "Ваш город",
-  "Avatar link": "Ссылка на аватар"
+  "Avatar link": "Ссылка на аватар",
+  "Server error when saving": "Ошибка сервера при сохранении",
+  "No data": "Нет данных",
+  "Incorrect age": "Неправильный возраст",
+  "Name and last name is required": "Необходимо указать имя и фамилию",
+  "Country required": "Необходимо указать страну"
 }

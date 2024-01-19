@@ -9,5 +9,10 @@
   "Save": "Save",
   "Your age": "Your age",
   "Your city": "Your city",
-  "Avatar link": "Avatar link"
+  "Avatar link": "Avatar link",
+  "Server error when saving": "Server error when saving",
+  "No data": "No data",
+  "Incorrect age": "Incorrect age",
+  "Name and last name is required": "Name and last name is required",
+  "Country required": "Country required"
 }

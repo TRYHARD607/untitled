@@ -42,7 +42,13 @@ const config: StorybookConfig = {
     });
     config.module!.rules.push(buildCssLoaders(true));
     config.module!.rules.push(buildSvgLoaders());
-    config.plugins!.push(new DefinePlugin({ __IS_DEV__: true, __API__: '' }));
+    config.plugins!.push(
+      new DefinePlugin({
+        __IS_DEV__: true,
+        __API__: JSON.stringify('apiUrl'),
+        __PROJECT__: JSON.stringify('storybook'),
+      })
+    );
     return config;
   },
 };
