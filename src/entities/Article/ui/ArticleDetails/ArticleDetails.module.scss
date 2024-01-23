@@ -1,0 +1,29 @@
+.avatar {
+  margin: 0 auto;
+}
+
+.skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.articleInfo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.avatarWrapper {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.title {
+  margin-top: 40px;
+}
+
+.block {
+  margin-top: 16px;
+}

@@ -4,14 +4,14 @@ import { classNames } from 'shared/lib/classNames/classNames';
 
 import cls from './ArticlesPage.module.scss';
 
-interface ArticlesDetailsPageProps {
+interface ArticlesPageProps {
   className?: string;
 }
 
-const ArticlesPage = ({ className }: ArticlesDetailsPageProps) => {
+const ArticlesPage = ({ className }: ArticlesPageProps) => {
   const { t } = useTranslation('article');
   return (
-    <div className={classNames(cls.ArticlesDetailsPage, {}, [className])}>
+    <div className={classNames(cls.ArticlesPage, {}, [className])}>
       {t('ARTICLES PAGE')}
     </div>
   );

@@ -7,6 +7,7 @@ import {
   type UnknownAction,
 } from '@reduxjs/toolkit';
 import { type AxiosInstance } from 'axios';
+import { type ArticleDetailsSchema } from 'entities/Article';
 import { type CounterSchema } from 'entities/Counter';
 import { type UserSchema } from 'entities/User';
 import { type LoginSchema } from 'features/AuthByUsername';
@@ -20,6 +21,7 @@ export interface StateSchema {
   // Async reducers
   loginForm?: LoginSchema | undefined;
   profile?: ProfileSchema | undefined;
+  articleDetails?: ArticleDetailsSchema | undefined;
 }
 
 export type StateSchemaKey = keyof StateSchema;
