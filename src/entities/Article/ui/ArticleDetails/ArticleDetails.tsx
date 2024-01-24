@@ -1,11 +1,12 @@
 import { fetchArticleById } from 'entities/Article/model/services/fetchArticleById/fetchArticleById';
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import CalendarIcon from 'shared/assets/icons/clarity_date.svg';
 import EyeIcon from 'shared/assets/icons/eye.svg';
 import { DynamicModuleLoader } from 'shared/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch';
+import { useInitialEffect } from 'shared/hooks/useInitialEffect/useInitialEffect';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Icon } from 'shared/ui/Icon/Icon';
@@ -68,11 +69,9 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
     }
   }, []);
 
-  useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      void dispatch(fetchArticleById(id));
-    }
-  }, [dispatch, id]);
+  useInitialEffect(() => {
+    void dispatch(fetchArticleById(id));
+  });
 
   let content;
 

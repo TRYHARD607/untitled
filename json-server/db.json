@@ -26,13 +26,15 @@
       "id": "1",
       "username": "admin",
       "password": "1234",
-      "role": "ADMIN"
+      "role": "ADMIN",
+      "avatar": "https://img.freepik.com/free-vector/mysterious-mafia-man-smoking-cigarette_52683-34828.jpg?w=740&t=st=1705296435~exp=1705297035~hmac=8e94a939bab1c3ab69b61b51b937ea0d3e84d2c38f6ccabaebe1ce34c0bbc715"
     },
     {
       "id": "2",
       "username": "user",
       "password": "1234",
-      "role": "USER"
+      "role": "USER",
+      "avatar": "https://play-lh.googleusercontent.com/-E6UbQ294TWPHa08XpxtsQDPm9HpoifE5IDjdLYKWxCFunA8DrpNt0rs0XtmRG5YTqM"
     }
   ],
   "articles": [
@@ -109,25 +111,25 @@
   "comments": [
     {
       "id": "1",
-      "test": "some comment",
+      "text": "some comment",
       "articleId": "1",
       "userId": "1"
     },
     {
       "id": "2",
-      "test": "some comment",
+      "text": "some comment",
       "articleId": "1",
       "userId": "2"
     },
     {
       "id": "3",
-      "test": "some comment",
+      "text": "some comment",
       "articleId": "1",
       "userId": "1"
     },
     {
       "id": "4",
-      "test": "some comment",
+      "text": "some comment",
       "articleId": "1",
       "userId": "2"
     }
