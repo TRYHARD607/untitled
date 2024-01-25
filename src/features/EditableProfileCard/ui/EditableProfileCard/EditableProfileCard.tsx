@@ -8,6 +8,7 @@ import { numberRegex } from 'shared/consts/regex';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 
+import { getCanEdit } from '../../model/selectors/getCanEdit/getCanEdit';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
 import { getProfileFormData } from '../../model/selectors/getProfileFormData/getProfileFormData';
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
@@ -25,6 +26,7 @@ export const EditableProfileCard = () => {
   const isLoading = useSelector(getProfileIsLoading);
   const readonly = useSelector(getProfileReadOnly);
   const validationErrors = useSelector(getProfileValidationErrors);
+  const canEdit = useSelector(getCanEdit);
 
   const validationErrorsTranslate = {
     [ValidateProfileError.SERVER_ERROR]: t('Server error when saving'),
@@ -89,7 +91,7 @@ export const EditableProfileCard = () => {
 
   return (
     <>
-      <EditableCardHeader />
+      <EditableCardHeader canEdit={canEdit} />
       {validationErrors?.length &&
         validationErrors.map((err) => (
           <Text

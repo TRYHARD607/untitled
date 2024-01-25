@@ -13,9 +13,13 @@ import cls from './EditableCardHeader.module.scss';
 
 interface EditableCardHeaderProps {
   className?: string;
+  canEdit: boolean;
 }
 
-export const EditableCardHeader = ({ className }: EditableCardHeaderProps) => {
+export const EditableCardHeader = ({
+  className,
+  canEdit,
+}: EditableCardHeaderProps) => {
   const { t } = useTranslation('profile');
   const dispatch = useAppDispatch();
 
@@ -36,31 +40,35 @@ export const EditableCardHeader = ({ className }: EditableCardHeaderProps) => {
   return (
     <div className={classNames(cls.EditableCardHeader, {}, [className])}>
       <Text title={t('Profile')} />
-      {readonly ? (
-        <Button
-          theme={ButtonTheme.OUTLINE}
-          className={cls.editBtn}
-          onClick={onEdit}
-        >
-          {t('Edit')}
-        </Button>
-      ) : (
-        <>
-          <Button
-            theme={ButtonTheme.OUTLINE_RED}
-            className={cls.editBtn}
-            onClick={onCancelEdit}
-          >
-            {t('Cancel')}
-          </Button>
-          <Button
-            theme={ButtonTheme.OUTLINE}
-            className={cls.saveBtn}
-            onClick={onSave}
-          >
-            {t('Save')}
-          </Button>
-        </>
+      {canEdit && (
+        <div className={cls.btnWrapper}>
+          {readonly ? (
+            <Button
+              theme={ButtonTheme.OUTLINE}
+              className={cls.editBtn}
+              onClick={onEdit}
+            >
+              {t('Edit')}
+            </Button>
+          ) : (
+            <>
+              <Button
+                theme={ButtonTheme.OUTLINE_RED}
+                className={cls.editBtn}
+                onClick={onCancelEdit}
+              >
+                {t('Cancel')}
+              </Button>
+              <Button
+                theme={ButtonTheme.OUTLINE}
+                className={cls.saveBtn}
+                onClick={onSave}
+              >
+                {t('Save')}
+              </Button>
+            </>
+          )}
+        </div>
       )}
     </div>
   );

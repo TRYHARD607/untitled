@@ -18,66 +18,52 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const mockedStore = {
+  profile: {
+    formData: {
+      first: 'User',
+      lastname: 'User',
+      age: 21,
+      country: Country.USA,
+      currency: Currency.USD,
+      city: 'City',
+      avatar: Image,
+      username: 'admin',
+      id: '1',
+    },
+    data: {
+      id: '1',
+    },
+    readonly: true,
+  },
+  user: {
+    authData: { username: 'user', id: '1' },
+  },
+};
+
 export const Primary: Story = {
   args: {},
+  decorators: [StoreDecorator(mockedStore)],
+};
+
+export const CantEdit: Story = {
+  args: {},
   decorators: [
-    StoreDecorator({
-      profile: {
-        formData: {
-          first: 'User',
-          lastname: 'User',
-          age: 21,
-          country: Country.USA,
-          currency: Currency.USD,
-          city: 'City',
-          avatar: Image,
-          username: 'admin',
-        },
-        readonly: true,
-      },
-    }),
+    StoreDecorator({ ...mockedStore, user: { authData: { id: '2' } } }),
   ],
 };
 
 export const Dark: Story = {
   args: {},
-  decorators: [
-    ThemeDecorator(Theme.DARK),
-    StoreDecorator({
-      profile: {
-        formData: {
-          first: 'User',
-          lastname: 'User',
-          age: 21,
-          country: Country.USA,
-          currency: Currency.USD,
-          city: 'City',
-          avatar: Image,
-          username: 'admin',
-        },
-        readonly: true,
-      },
-    }),
-  ],
+  decorators: [StoreDecorator(mockedStore), ThemeDecorator(Theme.DARK)],
 };
 
 export const Editable: Story = {
   args: {},
   decorators: [
     StoreDecorator({
-      profile: {
-        formData: {
-          first: 'User',
-          lastname: 'User',
-          age: 21,
-          country: Country.USA,
-          currency: Currency.USD,
-          city: 'City',
-          avatar: Image,
-          username: 'admin',
-        },
-        readonly: false,
-      },
+      ...mockedStore,
+      profile: { ...mockedStore.profile, readonly: false },
     }),
   ],
 };
@@ -85,22 +71,14 @@ export const Editable: Story = {
 export const EditableDark: Story = {
   args: {},
   decorators: [
-    ThemeDecorator(Theme.DARK),
     StoreDecorator({
+      ...mockedStore,
       profile: {
-        formData: {
-          first: 'User',
-          lastname: 'User',
-          age: 21,
-          country: Country.USA,
-          currency: Currency.USD,
-          city: 'City',
-          avatar: Image,
-          username: 'admin',
-        },
+        ...mockedStore.profile,
         readonly: false,
       },
     }),
+    ThemeDecorator(Theme.DARK),
   ],
 };
 
@@ -108,17 +86,10 @@ export const WithError: Story = {
   args: {},
   decorators: [
     StoreDecorator({
+      ...mockedStore,
       profile: {
-        formData: {
-          first: '',
-          lastname: '',
-          age: 0,
-          country: Country.USA,
-          currency: Currency.USD,
-          city: 'City',
-          avatar: Image,
-          username: 'admin',
-        },
+        ...mockedStore.profile,
+        formData: { ...mockedStore.profile.formData },
         readonly: false,
         validateErrors: [
           ValidateProfileError.INCORRECT_AGE,
@@ -151,5 +122,6 @@ export const LoadingDark: Story = {
         readonly: true,
       },
     }),
+    ThemeDecorator(Theme.DARK),
   ],
 };

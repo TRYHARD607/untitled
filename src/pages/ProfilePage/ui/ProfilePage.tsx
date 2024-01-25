@@ -3,12 +3,13 @@ import {
   fetchProfileData,
   profileReducer,
 } from 'features/EditableProfileCard';
-import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import {
   DynamicModuleLoader,
   type ReducersList,
 } from 'shared/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch';
+import { useInitialEffect } from 'shared/hooks/useInitialEffect/useInitialEffect';
 import { classNames } from 'shared/lib/classNames/classNames';
 
 const reducers: ReducersList = { profile: profileReducer };
@@ -19,12 +20,13 @@ interface ProfilePageProps {
 
 const ProfilePage = ({ className }: ProfilePageProps) => {
   const dispatch = useAppDispatch();
+  const { id } = useParams<{ id: string }>();
 
-  useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      void dispatch(fetchProfileData());
+  useInitialEffect(() => {
+    if (id) {
+      void dispatch(fetchProfileData(id));
     }
-  }, [dispatch]);
+  });
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>

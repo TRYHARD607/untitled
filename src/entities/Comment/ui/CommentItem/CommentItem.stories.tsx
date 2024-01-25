@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 
 import { CommentItem } from './CommentItem';
@@ -12,7 +11,7 @@ const comment = {
 };
 
 const meta = {
-  title: 'entities/CommentItem',
+  title: 'entities/comment/CommentItem',
   component: CommentItem,
   tags: ['autodocs'],
 } satisfies Meta<typeof CommentItem>;

@@ -45,7 +45,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -132,16 +134,114 @@
       "text": "some comment",
       "articleId": "1",
       "userId": "2"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "asdqweqweasdqw e",
+      "id": "zwAu6nw"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "qweasd ",
+      "id": "UyqeQ7N"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "qweqwe",
+      "id": "NWj2WIo"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "qwewe",
+      "id": "lXl8g3T"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "asdqweqw dasd qwe",
+      "id": "KQLJcpq"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "qweqwqeasd qwe",
+      "id": "nsrM6Aa"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "qweqdas dqwe ",
+      "id": "QQI3ECU"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "123123123",
+      "id": "X7sfS8M"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "gegegege",
+      "id": "iDQREA8"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "qweqasd qwe",
+      "id": "419uops"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "qwe",
+      "id": "69fP-5A"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "qweqw eqwe",
+      "id": "MD3VlyV"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "xca",
+      "id": "49NyjY7"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "123123",
+      "id": "LK0kTvJ"
     }
   ],
-  "profile": {
-    "first": "Alex",
-    "lastname": "Kvashnev",
-    "age": 26,
-    "currency": "EUR",
-    "country": "Russia",
-    "city": "Novosibirsk",
-    "username": "admin",
-    "avatar": "https://img.freepik.com/free-vector/mysterious-mafia-man-smoking-cigarette_52683-34828.jpg?w=740&t=st=1705296435~exp=1705297035~hmac=8e94a939bab1c3ab69b61b51b937ea0d3e84d2c38f6ccabaebe1ce34c0bbc715"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "Alex qweqwe",
+      "lastname": "Kvashnev",
+      "age": 26,
+      "currency": "EUR",
+      "country": "Russia",
+      "city": "Novosibirsk",
+      "username": "admin",
+      "avatar": "https://img.freepik.com/free-vector/mysterious-mafia-man-smoking-cigarette_52683-34828.jpg?w=740&t=st=1705296435~exp=1705297035~hmac=8e94a939bab1c3ab69b61b51b937ea0d3e84d2c38f6ccabaebe1ce34c0bbc715"
+    },
+    {
+      "id": "2",
+      "first": "BamBam",
+      "lastname": "Bimbim",
+      "age": 99,
+      "currency": "EUR",
+      "country": "Russia",
+      "city": "Novosibirsk",
+      "username": "user",
+      "avatar": "https://play-lh.googleusercontent.com/-E6UbQ294TWPHa08XpxtsQDPm9HpoifE5IDjdLYKWxCFunA8DrpNt0rs0XtmRG5YTqM"
+    }
+  ]
 }

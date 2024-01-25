@@ -10,6 +10,7 @@ import { type AxiosInstance } from 'axios';
 import { type ArticleDetailsSchema } from 'entities/Article';
 import { type CounterSchema } from 'entities/Counter';
 import { type UserSchema } from 'entities/User';
+import { type AddNewCommentSchema } from 'features/AddNewComment';
 import { type LoginSchema } from 'features/AuthByUsername';
 import { type ProfileSchema } from 'features/EditableProfileCard';
 import { type ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
@@ -20,10 +21,11 @@ export interface StateSchema {
   user: UserSchema;
 
   // Async reducers
-  loginForm?: LoginSchema | undefined;
-  profile?: ProfileSchema | undefined;
-  articleDetails?: ArticleDetailsSchema | undefined;
+  loginForm?: LoginSchema;
+  profile?: ProfileSchema;
+  articleDetails?: ArticleDetailsSchema;
   articleDetailsComments?: ArticleDetailsCommentsSchema;
+  addNewComment?: AddNewCommentSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;
