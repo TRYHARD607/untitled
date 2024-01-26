@@ -7,6 +7,12 @@ const data: Article = {
   id: '1',
   title: 'Javascript news',
   subtitle: 'wats news?',
+  user: {
+    id: '1',
+    username: 'user',
+    avatar:
+      'https://play-lh.googleusercontent.com/-E6UbQ294TWPHa08XpxtsQDPm9HpoifE5IDjdLYKWxCFunA8DrpNt0rs0XtmRG5YTqM',
+  },
   img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
   views: 1022,
   createdAt: '26.02.2022',

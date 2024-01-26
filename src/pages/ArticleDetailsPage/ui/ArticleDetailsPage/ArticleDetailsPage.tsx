@@ -5,14 +5,16 @@ import { addCommentForArticle } from 'pages/ArticleDetailsPage/model/services/ad
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import {
   DynamicModuleLoader,
   type ReducersList,
 } from 'shared/components/DynamicModuleLoader/DynamicModuleLoader';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch';
 import { useInitialEffect } from 'shared/hooks/useInitialEffect/useInitialEffect';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Button } from 'shared/ui/Button/Button';
 import { Text } from 'shared/ui/Text/Text';
 
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
@@ -34,6 +36,7 @@ interface ArticlesDetailsPageProps {
 const ArticleDetailsPage = ({ className }: ArticlesDetailsPageProps) => {
   const { id } = useParams<{ id: string }>();
   const { t } = useTranslation('article');
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
   const comments = useSelector(getArticleComments.selectAll);
@@ -45,6 +48,10 @@ const ArticleDetailsPage = ({ className }: ArticlesDetailsPageProps) => {
     },
     [dispatch]
   );
+
+  const onBackToListClick = useCallback(() => {
+    navigate(RoutePath.articles);
+  }, [navigate]);
 
   useInitialEffect(() => {
     void dispatch(fetchCommentsByArticleId(id));
@@ -61,6 +68,7 @@ const ArticleDetailsPage = ({ className }: ArticlesDetailsPageProps) => {
   return (
     <DynamicModuleLoader reducers={reducersList} removeAfterUnmount>
       <div className={classNames(cls.ArticlesDetailsPage, {}, [className])}>
+        <Button onClick={onBackToListClick}>{t('Back to list')}</Button>
         <ArticleDetails id={id} />
         <AddNewCommentForm onSendComment={onSendComment} />
         <Text title={t('Comments')} className={cls.commentTitle} />
