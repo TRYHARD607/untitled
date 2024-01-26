@@ -1,3 +1,4 @@
+export { mockedArticle } from './model/mock/article';
 export { getArticleDetailsData } from './model/selectors/getArticleDetailsData/getArticleDetailsData';
 export { type Article, ArticleView } from './model/types/article';
 export type { ArticleDetailsSchema } from './model/types/articleDetailsSchema';
