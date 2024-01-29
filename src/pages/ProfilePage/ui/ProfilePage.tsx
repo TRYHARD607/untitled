@@ -11,6 +11,7 @@ import {
 import { useAppDispatch } from 'shared/hooks/useAppDispatch';
 import { useInitialEffect } from 'shared/hooks/useInitialEffect/useInitialEffect';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Page } from 'shared/ui/Page/Page';
 
 const reducers: ReducersList = { profile: profileReducer };
 
@@ -30,9 +31,9 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div className={classNames('', {}, [className])}>
+      <Page className={classNames('', {}, [className])}>
         <EditableProfileCard />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };

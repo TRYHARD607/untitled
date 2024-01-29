@@ -1,8 +1,18 @@
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { Page } from 'shared/ui/Page/Page';
 
-const AboutPage = () => {
-  const { t } = useTranslation('about');
-  return <div>{t('About Page')}</div>;
-};
+interface AboutPageProps {
+  className?: string;
+}
 
+const AboutPage = memo(({ className }: AboutPageProps) => {
+  const { t } = useTranslation();
+  return (
+    <Page className={classNames('', {}, [className])}>{t('About Page')}</Page>
+  );
+});
+
+AboutPage.displayName = 'AboutPage';
 export default AboutPage;

@@ -24,6 +24,8 @@ const articlesPageSlice = createSlice({
     isLoading: false,
     error: undefined,
     view: ArticleView.PLATE,
+    page: 1,
+    hasMore: true,
     ids: [],
     entities: {},
   }),
@@ -32,10 +34,19 @@ const articlesPageSlice = createSlice({
       state.view = payload;
       localStorage.setItem(ARTICLES_VIEW_LOCALSTORAGE_KEY, payload);
     },
+    setPage: (state, { payload }: PayloadAction<number>) => {
+      state.page = payload;
+    },
+    setHasMore: (state, { payload }: PayloadAction<boolean>) => {
+      state.hasMore = payload;
+    },
     initState: (state) => {
-      state.view =
+      const view =
         (localStorage.getItem(ARTICLES_VIEW_LOCALSTORAGE_KEY) as ArticleView) ||
         ArticleView.PLATE;
+      console.log(view);
+      state.view = view;
+      state.limit = view === ArticleView.LIST ? 4 : 9;
     },
   },
   extraReducers: (builder) => {
@@ -47,7 +58,8 @@ const articlesPageSlice = createSlice({
       .addCase(fetchArticles.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.error = undefined;
-        articlesAdapter.setAll(state, payload);
+        articlesAdapter.addMany(state, payload);
+        state.hasMore = payload.length > 0;
       })
       .addCase(fetchArticles.rejected, (state, { payload }) => {
         state.isLoading = false;
