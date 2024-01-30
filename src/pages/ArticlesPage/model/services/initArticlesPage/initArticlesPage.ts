@@ -9,11 +9,12 @@ export const initArticlesPage = createAsyncThunk<
   void,
   void,
   ThunkConfig<string>
->('articlesPage/initArticlesPage', async (args, thunkApi) => {
+>('articlesPage/initArticlesPage', async (_, thunkApi) => {
   const { getState, dispatch } = thunkApi;
   const inited = getArticlesPageInited(getState());
 
   if (!inited) {
+    console.log('here');
     dispatch(articlesPageActions.initState());
     void dispatch(fetchArticles({ page: 1 }));
   }

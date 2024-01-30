@@ -45,7 +45,6 @@ const articlesPageSlice = createSlice({
       const view =
         (localStorage.getItem(ARTICLES_VIEW_LOCALSTORAGE_KEY) as ArticleView) ||
         ArticleView.PLATE;
-      console.log(view);
       state.view = view;
       state.limit = view === ArticleView.LIST ? 4 : 9;
       state._inited = true;

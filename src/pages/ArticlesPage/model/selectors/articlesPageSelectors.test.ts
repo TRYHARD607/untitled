@@ -4,6 +4,7 @@ import { ArticleView } from 'entities/Article';
 import {
   getArticlesPageError,
   getArticlesPageHasMore,
+  getArticlesPageInited,
   getArticlesPageIsLoading,
   getArticlesPageLimit,
   getArticlesPageNum,
@@ -94,5 +95,19 @@ describe('article comments selectors.test', () => {
   test('getArticlesPageHasMore should work with empty state', () => {
     const state: DeepPartial<StateSchema> = {};
     expect(getArticlesPageHasMore(state as StateSchema)).toEqual(undefined);
+  });
+
+  test('getArticlesPageInited should return value', () => {
+    const state: DeepPartial<StateSchema> = {
+      articlesPage: {
+        _inited: true,
+      },
+    };
+    expect(getArticlesPageInited(state as StateSchema)).toEqual(true);
+  });
+
+  test('getArticlesPageInited should work with empty state', () => {
+    const state: DeepPartial<StateSchema> = {};
+    expect(getArticlesPageInited(state as StateSchema)).toEqual(undefined);
   });
 });
