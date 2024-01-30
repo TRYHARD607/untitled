@@ -16,22 +16,6 @@ export const addNewCommentSlice = createSlice({
       state.text = payload;
     },
   },
-  extraReducers: (builder) => {
-    // builder
-    //   .addCase(sendComment.pending, (state) => {
-    //     state.isLoading = true;
-    //     state.error = undefined;
-    //   })
-    //   .addCase(sendComment.fulfilled, (state) => {
-    //     state.isLoading = false;
-    //     state.error = undefined;
-    //     state.text = '';
-    //   })
-    //   .addCase(sendComment.rejected, (state, { payload }) => {
-    //     state.isLoading = false;
-    //     state.error = payload;
-    //   });
-  },
 });
 
 export const { actions: addNewCommentActions, reducer: addNewCommentReducer } =

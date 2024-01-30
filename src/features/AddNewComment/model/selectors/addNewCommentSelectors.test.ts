@@ -32,7 +32,7 @@ describe('article comments selectors.test', () => {
 
   test('getAddNewCommentText should work with empty state', () => {
     const state: DeepPartial<StateSchema> = {};
-    expect(getAddNewCommentText(state as StateSchema)).toEqual(undefined);
+    expect(getAddNewCommentText(state as StateSchema)).toEqual('');
   });
 
   test('getAddNewCommentIsLoading should return value', () => {

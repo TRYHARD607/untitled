@@ -5,6 +5,7 @@ import {
 } from '@reduxjs/toolkit';
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
+import { scrollRestorationReducer } from 'features/ScrollRestoration';
 import { $api } from 'shared/api/api';
 
 import { createReducerManager } from './reducerManager';
@@ -22,6 +23,7 @@ export function createReduxStore(
     ...asyncReducers,
     counter: counterReducer,
     user: userReducer,
+    scrollRestoration: scrollRestorationReducer,
   };
 
   const reducerManager = createReducerManager(rootReducer);

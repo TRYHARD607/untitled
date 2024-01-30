@@ -13,13 +13,14 @@ import { type UserSchema } from 'entities/User';
 import { type AddNewCommentSchema } from 'features/AddNewComment';
 import { type LoginSchema } from 'features/AuthByUsername';
 import { type ProfileSchema } from 'features/EditableProfileCard';
+import { type ScrollRestorationSchema } from 'features/ScrollRestoration';
 import { type ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { type ArticlesPageSchema } from 'pages/ArticlesPage';
 
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
-
+  scrollRestoration: ScrollRestorationSchema;
   // Async reducers
   loginForm?: LoginSchema;
   profile?: ProfileSchema;

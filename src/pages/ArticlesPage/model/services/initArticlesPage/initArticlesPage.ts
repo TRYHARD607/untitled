@@ -14,7 +14,6 @@ export const initArticlesPage = createAsyncThunk<
   const inited = getArticlesPageInited(getState());
 
   if (!inited) {
-    console.log('here');
     dispatch(articlesPageActions.initState());
     void dispatch(fetchArticles({ page: 1 }));
   }

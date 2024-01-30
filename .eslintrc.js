@@ -52,5 +52,6 @@ module.exports = {
     '@typescript-eslint/no-dynamic-delete': 'off',
     'multiline-ternary': 'off',
     '@typescript-eslint/no-invalid-void-type': 'off',
+    'n/no-callback-literal': 'off',
   },
 };
